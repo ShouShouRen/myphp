@@ -7,5 +7,8 @@ foreach ($pdo->query('SELECT * FROM product') as $row) {
     echo $row['price'];
     echo '</p>';
 }
+foreach($pdo->query('SELECT * FROM PRODUCT') as $row){
+    echo "<p>$row[id]:$row[name]:$row[price]</p>";
+}
 ?>
 <?php require './footer.php' ?>
