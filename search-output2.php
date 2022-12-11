@@ -7,9 +7,9 @@
     </tr>
     <?php
     // prepare將SQL語句處理成一個特殊的對象，這個對象可以包含預處理語句，並且可以被多次執行（預處理）
-    $sql = $pdo->prepare('SELECT * FROM PRODUCT WHERE NAME=?');
+    $sql = $pdo->prepare('SELECT * FROM PRODUCT WHERE NAME LIKE ?');
     // execute執行預處理語句可傳入參數（執行）
-    $sql->execute([$_REQUEST['keyword']]);
+    $sql->execute(['%'.$_REQUEST['keyword'].'%']);
     foreach ($sql->fetchAll() as $row) {
         echo '<tr>';
         echo '<td>', $row['id'], '</td>';
